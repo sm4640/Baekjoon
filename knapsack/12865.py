@@ -2,23 +2,23 @@
 
 n, k = map(int, input().split())
 
-w = []
-v = []
-dp = [[0]*(k+1) for _ in range(n)]
+w = ['-']
+v = ['-']
+dp = [[0]*(k+1) for _ in range(n+1)]
 
 for i in range(n):
     i_w, i_v = map(int, input().split())
     w.append(i_w)
     v.append(i_v)
 
-for i in range(n):
-    for s in range(1, k+1):
+for i in range(1,n+1):
+    for s in range(1,k+1):
         if s >= w[i]:
             dp[i][s] = max(dp[i-1][s], dp[i-1][s-w[i]]+v[i])
         else:
             dp[i][s] = dp[i-1][s]
 
-print(max(max(i) for i in dp))
+print(dp[n][s])
 
 
 
