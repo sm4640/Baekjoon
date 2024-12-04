@@ -20,5 +20,3 @@ for i in range(m):
     total = total - x - y + (new*2)
 
 print(total)
-
-
